@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_24_125810) do
+ActiveRecord::Schema.define(version: 2024_01_24_134953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,30 @@ ActiveRecord::Schema.define(version: 2024_01_24_125810) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "manager_histories", force: :cascade do |t|
+    t.date "joining_date"
+    t.string "total_experience"
+    t.bigint "manager_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manager_id"], name: "index_manager_histories_on_manager_id"
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.string "name"
+    t.string "contact"
+    t.bigint "department_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_managers_on_department_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -80,6 +104,8 @@ ActiveRecord::Schema.define(version: 2024_01_24_125810) do
     t.index ["demo_id"], name: "index_sub_demos_on_demo_id"
   end
 
+  add_foreign_key "manager_histories", "managers"
+  add_foreign_key "managers", "departments"
   add_foreign_key "student_projects", "projects"
   add_foreign_key "student_projects", "students"
   add_foreign_key "sub_demos", "demos"
