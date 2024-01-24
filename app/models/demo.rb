@@ -1,0 +1,3 @@
+class Demo < ApplicationRecord
+
+end

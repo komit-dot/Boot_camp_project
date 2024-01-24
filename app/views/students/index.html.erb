@@ -1,0 +1,35 @@
+<p><%=notice%></p>
+<h1>Listing Students</h1>
+<%= link_to 'New Student', new_student_path %>
+<table>
+  <thead>
+   <tr>
+    <th><h3>First Name  &nbsp &nbsp </h3></th>
+    <th><h3>Last Name &nbsp &nbsp</h3></th>
+    <th><h3>Email Address&nbsp &nbsp</h3></th>
+    <th><h3>Address&nbsp &nbsp</h3></th>
+    <th><h3>Contact Number&nbsp &nbsp</h3></th>
+    <th><h3>Date of Birth&nbsp &nbsp</h3></th>
+    <th colspan="3"><h3>Actions</h3></th>
+
+   </tr>
+  </thead>
+  <tbody>
+  	<%@students.each do |student| %>
+   <tr>
+    <td><%= student.first_name %></td>
+    <td><%= student.last_name %></td>
+    <td><%= student.email %></td>
+    <td><%= student.local_address %></td>
+    <td><%= student.permanent_contact_number %></td>
+    <td><%= student.datee_of_birth %></td>
+    <td><%= link_to 'View', student%></td>
+    <td><%= link_to 'Edit', edit_student_path(student)%></td>
+    <!-- <td><%#= link_to 'Delete', student_path(student), method: :delete %></td> -->
+    <td><%= button_to 'Delete', student_path(student), method: :delete, class: 'btn btn-danger', form: {data: { turbo_confirm: "Are you sure?" }}  %></td>
+
+
+   </tr>
+   <%end%>
+  </tbody>
+</table>
