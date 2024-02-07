@@ -1,0 +1,38 @@
+<%= form_with model: @student do |form|%>
+ <% if @student.errors.any? %>
+  <% @student.errors.full_messages.each do |message| %>
+   <p><%= message %></p>
+  <% end %>
+ <%end%>
+ <div>
+  <%=form.label :first_name%>
+  <%=form.text_field :first_name%><br>
+ </div>
+ <br>
+ <div>
+  <%=form.label :last_name%>
+  <%=form.text_field :last_name%>
+ </div>
+ <br>
+ <div>
+  <%=form.label :email%>
+  <%=form.email_field :email%>
+ </div>
+ <br>
+ <div>
+  <%=form.label :local_address%>
+  <%=form.text_field :local_address%>
+ </div>
+ <br>
+ <div>
+  <%=form.label :permanent_contact_number%>
+  <%=form.text_field :permanent_contact_number%>
+ </div>
+ <br>
+ <div>
+  <%=form.label :datee_of_birth%>
+  <%=form.date_field :datee_of_birth%>
+ </div>
+ <br>
+ <%= form.submit %>
+<%end%>
