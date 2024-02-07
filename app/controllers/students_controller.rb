@@ -41,6 +41,10 @@ class StudentsController < ApplicationController
    #byebug
    @student.destroy
    redirect_to students_path, notice: "Student has been deleted successfully."
+  end
+
+  def personal_details
+    @student = Student.find(params[:id])
   end 
 
   private
