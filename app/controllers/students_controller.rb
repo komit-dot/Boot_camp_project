@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
+  include ApplicationHelper
   before_action :set_student, only: %i[show edit update destroy]
+  # helper_method :formatted_date
 
   def index
    @students = Student.all
@@ -55,6 +57,10 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:first_name, :last_name, :email, :permanent_contact_number, :datee_of_birth, :local_address, :permanent_contact_number)
-  end 
-  
+  end
+
+  # def formatted_date(date)
+  #   date.strftime('%A, %d %b, %Y') if date.present?
+  # end
+
 end
