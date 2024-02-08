@@ -7,7 +7,7 @@
 <p><strong>Email:</strong><%= @student.email%></p>
 <p><strong>Address:</strong><%= @student.local_address%></p>
 <p><strong>Contact Number:</strong><%= @student.permanent_contact_number%></p>
-<p><strong>Date of Birth:</strong><%= @student.datee_of_birth%></p>
+<p><strong>Date of Birth:</strong><%= formatted_date(@student.datee_of_birth)%></p>
 <p><strong>Age:</strong><%= @student.age%></p>
 
 
