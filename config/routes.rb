@@ -16,9 +16,21 @@ Rails.application.routes.draw do
     #end
   # use if you require only one member action use this sytex---->  get :personal_details, on: :member
   end
-  #get 'students/test'
+  get 'students/test'
   resources :blogs
 
   get 'welcome/about'
   get '/about' => 'welcome#about'
+
+  # namespace :admin do
+  #   resources :students
+  # end
+
+  # scope module: :admin do
+  #   resources :students
+  # end
+
+  # scope module: 'admin', path: 'aad', as: 'cool' do
+  #   resources :students
+  # end
 end

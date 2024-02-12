@@ -3,3 +3,5 @@
 /config/database.yml
 lib/
 node_modules/
+/public/packs
+/yarn.lock
