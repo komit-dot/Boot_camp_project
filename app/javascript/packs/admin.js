@@ -19,6 +19,7 @@ global.$ = jQuery;
 import 'bootstrap';
 
 import "css/admin";
+import "@fortawesome/fontawesome-free/css/all"
 
 
 import './plugins/jquery.easing.min'
