@@ -5,3 +5,4 @@ lib/
 node_modules/
 /public/packs
 /yarn.lock
+/public/packs/manifest.json
