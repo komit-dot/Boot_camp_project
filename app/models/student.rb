@@ -12,6 +12,10 @@ class Student < ApplicationRecord
 
   after_commit :display_student_age
 
+  def self.ransackable_attributes(auth_object = nil)
+        ["first_name", "last_name", "email", "local_address"]
+  end
+
   def display_student_age
     if self.datee_of_birth.present?
       age = Date.today.year - self.datee_of_birth.year

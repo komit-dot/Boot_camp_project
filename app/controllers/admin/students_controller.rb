@@ -7,7 +7,9 @@ class Admin::StudentsController < ApplicationController
   # helper_method :formatted_date
 
   def index
-   @students = Student.all.page(params[:page])
+    @q = Student.ransack(params[:q])
+    @students = @q.result(distinct: true).page(params[:page])
+   # @students = Student.all.page(params[:page])
   end
 
   def new
